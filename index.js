@@ -7,6 +7,7 @@ const config = require('./config/database');
 const path = require('path');
 //import code from database config
 const authentication = require('./routes/authentication')(router);
+const blogs = require('./routes/blogs')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/client/src/'));
 app.use('/authentication', authentication);
+app.use('/blogs', blogs);
 
 
 //no matter what they use - it will go to home screen when they enter the path
