@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   message;
   messageClass;
   processing = false; //to lock the fields while it is being submitted

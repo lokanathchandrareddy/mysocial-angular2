@@ -48,7 +48,7 @@ export class BlogService {
     this.createAuthenticationHeaders(); // Create headers
     return this.http.put(this.domain + 'blogs/updateBlog/', blog, this.options).map(res => res.json());
   }
-  
+
   deleteBlog(id) {
     this.createAuthenticationHeaders(); // Create headers
     return this.http.delete(this.domain + 'blogs/deleteBlog/' + id, this.options).map(res => res.json());
@@ -64,6 +64,15 @@ export class BlogService {
   dislikeBlog(id) {
     const blogData = { id: id };
     return this.http.put(this.domain + 'blogs/dislikeBlog/', blogData, this.options).map(res => res.json());
+  }
+
+  postComment(id, comment) {
+    this.createAuthenticationHeaders(); // Create headers
+    const blogData = {
+      id: id ,
+      comment: comment
+    }
+    return this.http.post(this.domain + 'blogs/comment' , blogData, this.options).map(res => res.json());
   }
 
 }
